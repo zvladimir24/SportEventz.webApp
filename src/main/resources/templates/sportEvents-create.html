@@ -1,0 +1,71 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+  <title>Events Create</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+  <section layout:fragment="body" class="py-5">
+    <div class="container">
+      <form role="form" method="post" th:action="@{/sportEvents/{sportId}(sportId=${sportId})}" th:object="${sportEvent}">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="name">Name</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="title"
+                    th:field="*{name}"
+                    placeholder="Event name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="type">Type</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="type"
+                    name="photoUrl"
+                    th:field="*{type}"
+                    placeholder="Event type">
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="photoUrl">PhotoUrl</label>
+          <input
+                  type="text"
+                  class="form-control"
+                  id="photoUrl"
+                  name="photoUrl"
+                  th:field="*{photoUrl}"
+                  placeholder="PhotoUrl">
+        </div>
+        <div class="form-group mb-3">
+        <label for="startTime">Start Time</label>
+        <input
+                type="datetime-local"
+                class="form-control"
+                id="startTime"
+                name="startTime"
+                th:field="*{startTime}"
+                placeholder="Start Time">
+      </div>
+        <div class="form-group mb-3">
+          <label for="endTime">End Time</label>
+          <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="endTime"
+                  name="endTime"
+                  th:field="*{endTime}"
+                  placeholder="End Time">
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </section>
+</main>
+</body>
+</html>
